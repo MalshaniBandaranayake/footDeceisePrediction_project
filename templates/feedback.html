@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/appointment">Book Appointment</a>
+            
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Feedback</h1>
+        <form method="post">
+            <div class="feedback-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <textarea name="feedback" placeholder="Your Feedback" required></textarea>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        <div class="feedback-content">
+            {% for feedback in feedbacks %}
+            <div class="feedback-entry">
+                <strong>{{ feedback.name }}</strong>
+                <p>{{ feedback.text }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        &copy; foot decease detection system
+    </footer>
+    
+</body>
+</html>

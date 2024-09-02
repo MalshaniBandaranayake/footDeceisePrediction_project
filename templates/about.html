@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='background.jpg') }}');">
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/appointment">Book Appointment</a>
+          
+        </div>
+    </nav>
+
+    <div class="container about-content">
+        <h2>About Our Project</h2>
+        <p>Welcome to our advanced healthcare management system designed to enhance patient care and streamline medical processes.
+             Our system integrates a sophisticated deep learning image detection model that identifies and diagnoses common foot diseases, 
+             such as athlete's foot and foot corn, from uploaded images. 
+            Patients can easily upload their foot images through our user-friendly web interface, where our robust model provides
+            accurate diagnoses and automated treatment recommendations.
+
+            Additionally, our platform features a doctor channeling system, allowing patients to connect with healthcare professionals directly. 
+            After booking an appointment, patients receive a unique token via email for secure access and verification.
+            This ensures a smooth and personalized healthcare experience, making it easier for patients to receive timely and appropriate care.
+            
+            Our system aims to improve healthcare accessibility and efficiency while ensuring that each patient receives the best possible service.
+             We are committed to providing a seamless and secure experience for both patients and healthcare providers</p>
+    </div>
+
+    <footer>
+        &copy; 2024 foot decease detection system
+    </footer>
+</body>

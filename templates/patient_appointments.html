@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/appointment">Book Appointment</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>My Appointments</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Doctor Name</th>
+                    <th>Appointment Time</th>
+                    <th>Hospital</th>
+                    <th>Patient Email</th>
+                    <th>Deciese Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    
+                    <td>{{ appointment.patient_name }}</td>
+                    <td>{{ appointment.doctor_name }}</td>
+                    <td>{{ appointment.appointment_time }}</td>
+                    <td>{{ appointment.hospital }}</td>
+                    <td>{{ appointment.patient_email }}</td>
+                    <td>{{ appointment.deciese_type }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        &copy; 2024 foot decease detection system
+    </footer>
+</body>
+</html>

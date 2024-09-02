@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/appointment">Book Appointment</a>
+            <h1>Prediction Result</h1>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="result-wrapper">
+            <button id="showTreatment" class="show-treatment-button">Show Treatment</button>
+            <a href="{{ url_for('index') }}" class="upload-another-link">Upload Another Image</a>
+            <div id="treatment" class="treatment-content"></div>
+            <div class="result-content">
+                <p>Result: {{ result }}</p>
+                <img src="{{ url_for('static', filename=img_path.split('/')[-1]) }}" alt="Uploaded Image" class="result-image" width="300">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Foot Disease Detection System
+    </footer>
+
+    <script>
+        document.getElementById('showTreatment').addEventListener('click', function() {
+            fetch(`/treatment/{{ result }}`)
+                .then(response => response.text())
+                .then(data => document.getElementById('treatment').innerHTML = data);
+        });
+    </script>
+</body>
+</html>

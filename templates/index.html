@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/appointment">Book Appointment</a>
+            <a href="/login">Admin Login</a>
+        </div>
+    </nav>
+
+    <div class="main">
+        <h1 class="upload-heading">Upload Your Image</h1>
+        <div class="upload-image-section">
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <input type="submit" value="Upload Image">
+            </form>
+        </div>
+
+        <h2>Meet Your Doctor</h2>
+        <div class="doctors-container">
+            {% for doctor in doctors %}
+                <div class="doctor-box">
+                    <img src="{{ url_for('static', filename='images/' + doctor.image_filename) }}" alt="{{ doctor.name }}" class="doctor-image">
+                    <h3>{{ doctor.name }}</h3>
+                    <p><strong>Specialty:</strong> {{ doctor.specialty }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 foot decease detection system
+    </footer>
+</body>
+</html>

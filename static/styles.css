@@ -1,0 +1,347 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark text color */
+    line-height: 1.6;
+    background: url('background.jpg') no-repeat center center fixed; 
+    background-size: cover; /* Cover the entire page */
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #333; /* Dark background for navbar */
+    color: #070707; /* White text color */
+    padding: 1rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.navbar a {
+    color: #0f0e0e; /* White text color */
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.navbar a:hover {
+    background-color: #555; /* Darken background on hover */
+}
+
+.navbar h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Container styles */
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for content */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow for container */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Image upload form styles */
+form {
+    margin-bottom: 1rem;
+}
+
+input[type="file"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* About and feedback page specific styles */
+.about-content, .feedback-content {
+    padding: 2rem 0;
+    line-height: 1.8;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 1rem;
+    }
+}
+
+/* Image styling */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #007BB5;
+}
+
+/* Feedback form styling */
+.feedback-form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 50%; /* Adjust to set a medium-sized box */
+    text-align: center;
+}
+
+.feedback-form input, .feedback-form textarea, .feedback-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.feedback-form textarea {
+    height: 100px;
+}
+
+.feedback-form input[type="submit"] {
+    background-color: #008CBA;
+}
+
+.feedback-form input[type="submit"]:hover {
+    background-color: #007BB5;
+}
+
+/* Feedback entries styling */
+.feedback-entry {
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background for feedback entries */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: left;
+    color: white;
+}
+
+.feedback-entry strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #ff0;
+}
+
+.feedback-entry p {
+    margin: 0;
+    color: #fff;
+}
+
+/* Center the feedback heading */
+h1 {
+    text-align: center;
+    margin-top: 20px; /* Adjust spacing */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #449b9b;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.doctors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.doctor-box {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 20px 0;
+    text-align: center; /* Center the "Our Doctors" heading */
+}
+
+.doctor-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.doctor-box h3 {
+    margin: 10px 0;
+}
+
+.doctor-box p {
+    margin: 5px 0;
+}
+
+.h2{
+text-align: center;
+}
+
+/* Upload Image Section */
+.upload-image-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Ensure main content area is scrollable */
+.main {
+    padding: 2rem 1rem;
+    margin-top: 0px; /* Adjust margin to avoid overlap with fixed navbar */
+    min-height: 100vh; /* Ensure it takes up at least the full height of the viewport */
+}
+
+/* Result page styles */
+.result-top-bar {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items:flex-end; /* Align items to the start of the flex container */
+    margin-bottom: 20px; /* Space between buttons and result content */
+    gap: 10px; /* Space between buttons */
+}
+
+.upload-another-button,
+.show-treatment-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* Ensure buttons are displayed as block elements for vertical stacking */
+}
+
+.upload-another-button {
+    background-color: #007bff; /* Blue button for uploading another image */
+    margin-top: 20px;
+}
+
+.upload-another-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.show-treatment-button {
+    background-color: #28a745; /* Green button for showing treatment */
+}
+
+.show-treatment-button:hover {
+    background-color: #218838;
+    margin-top: 20px; /* Darker green on hover */
+}
+
+.result-content {
+    margin-top: 20px; /* Space between buttons and result content */
+}
+
+.result-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+p {
+    text-align: center; /* Center the text horizontally */
+    font-size: 1.5rem; /* Larger font size for emphasis */
+    color: #0a0339; /* Dark text color */
+    margin-top: 20px; /* Space above the result text */
+}
+

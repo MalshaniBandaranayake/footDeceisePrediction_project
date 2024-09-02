@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/appointment">Book Appointment</a>
+            <a href="/login">Admin Login</a>
+        </div>
+    </nav>
+
+   
+        <div class="container">
+            <h1>Admin Login</h1>
+            <form method="post">
+                <div class="feedback-form">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+
+        <footer>
+            &copy; 2024 foot decease detection system
+        </footer>
+        
+</body>
+</html>

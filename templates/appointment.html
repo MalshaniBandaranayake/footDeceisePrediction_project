@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/appointment">Book Appointment</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Book an Appointment</h1>
+        <form action="/appointment" method="post">
+            <div class="feedback-form">
+                <input type="text" name="patient_name" placeholder="Patient Name" required>
+                <input type="email" name="patient_email" placeholder="Patient Email" required>
+                <select name="doctor_name" required>
+                    <option value="" disabled selected>Select Doctor</option>
+                    <option value="Hemal Perera">Hemal Perera</option>
+                    <option value="Kenul Sembukutti">Kenul Sembukutti</option>
+                    <option value="Sudarshan Mendis">Sudarshan Mendis</option>
+                    <option value="Apsara Haputhanthri">Apsara Haputhanthri</option>
+                </select>
+                <input type="datetime-local" name="appointment_time" required >
+                <select name="hospital" required>
+                    <option value="" disabled selected>Select Hospital</option>
+                    <option value="Asiri">Asiri</option>
+                    <option value="Hemas">Hemas</option>
+                    <option value="Nawaloka">Nawaloka</option>
+                </select>
+                <select name="deciese_type" required>
+                    <option value="" disabled selected>Select Disease Type</option>
+                    <option value="Foot Corn">Foot Corn</option>
+                    <option value="Athlete's Foot">Athlete's Foot</option>
+                </select>
+                <input type="submit" value="Book Appointment">
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 foot decease detection system
+    </footer>
+</body>
+</html>
