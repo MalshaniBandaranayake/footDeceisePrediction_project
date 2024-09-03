@@ -1,3 +1,4 @@
+<!-- admin_view_appointments.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,7 @@
                     <th>Hospital</th>
                     <th>Patient Email</th>
                     <th>Deciese Type</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +40,9 @@
                     <td>{{ appointment.hospital }}</td>
                     <td>{{ appointment.patient_email }}</td>
                     <td>{{ appointment.deciese_type }}</td>
+                    <td>
+                        <a href="{{ url_for('send_email_form', appointment_id=appointment.id) }}">Send Email</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

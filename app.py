@@ -130,6 +130,7 @@ def treatment(result):
 
 
 # Route to book an appointment
+# Route to book an appointment
 @app.route('/appointment', methods=['GET', 'POST'])
 def appointment():
     if request.method == 'POST':
@@ -145,39 +146,32 @@ def appointment():
         except ValueError:
             return "Invalid date format. Please use 'YYYY-MM-DDTHH:MM'."
 
-        # Get the next available token number
-        token = Token.query.filter_by(used=False).first()
-        if token is None:
-            return "No available tokens. Please try again later."
-
-        # Mark the token as used
-        token.used = True
-        db.session.commit()
-
         new_appointment = Appointment(
             patient_name=patient_name,
             doctor_name=doctor_name,
             appointment_time=appointment_time,
             hospital=hospital,
             patient_email=patient_email,
-            deciese_type=deciese_type 
+            deciese_type=deciese_type
         )
         db.session.add(new_appointment)
         db.session.commit()
 
-        # Generate doctor's arrival time
-        doctor_arrival_time = '10:00 AM'
-
         # Send email to the patient
         msg = Message('Appointment Confirmation',
                       recipients=[patient_email])
-        msg.body = f"Dear {patient_name},\n\nYour appointment with Dr. {doctor_name} at {hospital} has been confirmed.\n\nToken Number: {token.number}\nDoctor's Arrival Time: {doctor_arrival_time}\n\nThank you for choosing our service."
+        msg.body = (f"Dear {patient_name},\n\n"
+                    f"Your appointment with Dr. {doctor_name} at {hospital} "
+                    f"has been confirmed.\n\n"
+                    f"We will send your token number and other details soon.\n\n"
+                    f"Thank you for choosing our service.")
         mail.send(msg)
 
         flash('Appointment booked successfully! Confirmation email sent.', 'success')
         session['patient_name'] = patient_name  # Save patient name to session
         return redirect(url_for('patient_appointments'))
     return render_template('appointment.html')
+
 
 # Route for a patient to view their appointments
 @app.route('/patient_appointments')
@@ -216,6 +210,28 @@ def login():
         else:
             return "Invalid credentials. Please try again."
     return render_template('login.html')
+
+# Route to display the send email form
+@app.route('/send_email/<int:appointment_id>', methods=['GET', 'POST'])
+def send_email_form(appointment_id):
+    appointment = Appointment.query.get_or_404(appointment_id)
+
+    if request.method == 'POST':
+        token_number = request.form['token_number']
+        doctor_arrival_time = request.form['doctor_arrival_time']
+        patient_email = request.form['patient_email']
+
+        # Send email to the patient
+        msg = Message('Doctors Details',
+                      recipients=[patient_email])
+        msg.body = f"Dear {appointment.patient_name},\n\nYour appointment details with Dr. {appointment.doctor_name} at {appointment.hospital}  I mentioned in below.\n\nToken Number: {token_number}\nDoctor's Arrival Time: {doctor_arrival_time}\n\nThank you for choosing our service."
+        mail.send(msg)
+
+        flash('Email sent successfully!', 'success')
+        return redirect(url_for('admin_view_appointments'))
+
+    return render_template('send_email_form.html', appointment=appointment)
+
 
 # Admin logout route
 @app.route('/logout')
