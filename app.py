@@ -88,7 +88,7 @@ def index():
         img = prepare_image(img_path)
         prediction = model.predict(img)
         class_index = np.argmax(prediction[0])  # Get the index of the highest probability
-        class_names = ['athlete-foot', 'foot-corn', 'invalid-image']  
+        class_names = ['athlete-foot', 'foot-corn', 'invalid-Image']  
         result = class_names[class_index]
 
         return render_template('result.html', result=result, img_path=img_path)
@@ -123,13 +123,12 @@ def treatment(result):
         return "Treatment: Surgery, Use corn pads"
     elif result == 'athlete-foot':
         return "Treatment: Washing feet well, Use Tea-tree oil, Use Clotrimazole "
-    elif result == 'invalid-image ':
+    elif result == 'invalid-Image ':
         return "Treatment: This one not define"
     else:
         return "This one not define"
 
 
-# Route to book an appointment
 # Route to book an appointment
 @app.route('/appointment', methods=['GET', 'POST'])
 def appointment():

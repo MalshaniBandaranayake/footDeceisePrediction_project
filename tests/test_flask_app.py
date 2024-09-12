@@ -10,8 +10,8 @@ import os
 class FlaskAppTests(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()  # Ensure you have ChromeDriver installed and in your PATH
-        self.driver.set_page_load_timeout(30)  # Set page load timeout to 30 seconds
+        self.driver = webdriver.Chrome()  # ChromeDriver installed and in your PATH
+        self.driver.set_page_load_timeout(30)  
         self.base_url = "http://127.0.0.1:5000"
         self.driver.get(self.base_url)
         
